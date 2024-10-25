@@ -1,0 +1,157 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{amsmath,amsthm,amssymb}
+
+\begin{document}
+
+\title{Aufgabenblatt 2}
+\author{Ben Engelhard \and Sarah Walden}
+\date{}
+
+\maketitle
+
+\begin{enumerate}[label=\arabic*)]
+    \item
+          \begin{enumerate}[label=\alph*)]
+              \item
+                    \begin{enumerate}[label=(\roman*)]
+                        \item
+                              \begin{equation}
+                                  \neg\forall x p(x) \equiv \exists x \neg p(x)
+                              \end{equation}
+                              \begin{flushleft}
+                                  "p(x) gilt nicht für alle x" ist logisch äquivalent zu "es gibt ein x für das p(x) falsch ist"
+                              \end{flushleft}
+                        \item
+                              \begin{equation}
+                                  \neg\exists x p(x) \equiv \forall x \neg p(x)
+                              \end{equation}
+                              \begin{flushleft}
+                                  "Es gibt kein x bei dem p(x) wahr ist" ist logisch äquivalent zu "für alle x ist p(x) falsch"
+                              \end{flushleft}
+                    \end{enumerate}
+              \item
+                    \begin{align}
+                        \nonumber\neg\forall x \in X \exists y\in Y : p(x,y) \wedge q(x,y)            \\
+                        \nonumber\equiv \exists x \in X \neg (\exists y \in Y : p(x,y) \wedge q(x,y)) \\
+                        \nonumber\equiv \exists x \in X \forall y \in Y : \neg (p(x,y) \wedge q(x,y)) \\
+                        \equiv \exists x \in X \forall y \in Y : \neg p(x,y) \vee \neg q(x,y)
+                    \end{align}
+              \item \begin{enumerate}[label=(\roman*)]
+                        \item \begin{equation}
+                                  \exists x p(x) \vee \exists x q(x) \equiv \exists x p(x) \vee q(x)
+                              \end{equation}
+                              \begin{proof}
+                                  \begin{align*}
+                                      \exists x p(x) \vee \exists x q(x) \equiv \exists x p(x) \vee q(x)                              \\
+                                      \Leftrightarrow \neg( \exists x p(x) \vee \exists x q(x)) \equiv \neg(\exists x p(x) \vee q(x)) \\
+                                      \Leftrightarrow \forall x \neg p(x) \wedge \forall x \neg q(x) \equiv \forall x \neg p(x) \wedge \neg q(x)
+                                  \end{align*}
+                                  "$\Rightarrow$"
+                                  \begin{align*}
+                                      \forall x \neg p(x) \wedge \forall x \neg q(x) \\
+                                      \Rightarrow \neg p(x), \neg q(x)               \\
+                                      \Rightarrow \forall x \neg p(x) \wedge \neg q(x)
+                                  \end{align*}
+                                  "$\Leftarrow$"
+                                  \begin{align*}
+                                      \forall x \neg p(x) \wedge \neg q(x) \\
+                                      \Rightarrow \neg p(x), \neg q(x)     \\
+                                      \forall x \neg p(x) \wedge \forall x \neg q(x)
+                                  \end{align*}
+                              \end{proof}
+                        \item \begin{equation}
+                                  \exists x p(x) \wedge \exists q(x) \equiv \exists x p(x) \wedge q(x)
+                              \end{equation}
+                              \begin{proof}[Wiederlegen durch Gegenbeispiel]
+
+                                  Sei M=\{a,b\} und p(a) = w, q(a) = f, p(b) = f, q(b) = w \\
+                                  Dann ist $\exists x p(x)$ wahr, $\exists x q(x)$ wahr und $\exists x p(x) \wedge \exists x p(x)$ wahr.\\
+                                  $\exists x p(x) \wedge q(x)$ ist aber falsch, da entweder immer p(x) oder q(x) für jedes Element falsch ist. \\
+                                  d.h. die beiden Seiten der Aussage sind nicht äquivalent
+                              \end{proof}
+                    \end{enumerate}
+          \end{enumerate}
+    \item \begin{enumerate}[label=\alph*)]
+              \item $ A \cup B = \{a,b,c,d\}$
+              \item $ A \cap B = \{b,c\}$
+              \item $ A \backslash B = \{a\}$
+              \item $ (A \cup B)\backslash (A \cap B) = \{a,d\}$
+              \item $A \times B$ = \{(a,b),(a,c),(a,d),(b,b),(b,c),(b,d),(c,b),(c,c),(c,d) \}
+              \item $P(A) = \{\{a,b,c\},\{a,b\},\{a,c\},\{b,c\},\{a\},\{b\},\{c\},\emptyset\}$
+              \item $A \cap C = \emptyset$
+              \item $P(\emptyset) = \{\emptyset\}$
+          \end{enumerate}
+    \item \begin{enumerate}[label=\alph*)]
+              \item \begin{equation}
+                        P(A \cap B) =P(A) \cap P(B)
+                    \end{equation}
+                    \begin{proof}[Beweis durch Fallunterscheidung]
+                        Fall 1: $A \cap B = \emptyset$
+                        \begin{gather*}
+                            P(A) \cap P(B) = \{\emptyset\} \\
+                            P(A \cap B) = \{\emptyset\}
+                        \end{gather*}\hfill \checkmark
+
+                        Fall 2: $A = B$
+                        \begin{gather*}
+                            A \cap B = A = B \\
+                            P(A \cap B) = P(A) = P(B)
+                            = P(A) \cap P(B)
+                        \end{gather*} \hfill \checkmark
+
+                        Fall 3: $(A \cap B) \subset A \wedge (A \cap B) \subset B$
+                        \begin{gather*}
+                            P(A \cap B) = \{C |C \subset A \cap B\} \\
+                            P(A) = \{A^{*} | A^{*} \subset A \} \\
+                            P(B) = \{B^{*} | B \subset B \} \\
+                        \end{gather*}
+
+
+                    \end{proof}
+                    \pagebreak
+              \item \begin{equation}
+                        P(A \cup B) =P(A) \cup P(B)
+                    \end{equation}
+                    \begin{proof}[Wiederlegen durch Gegenbeispiel]
+                        Sei A=\{1\} und B=\{2\}\\
+                        Dann ist:
+                        \begin{gather*}
+                            P(A \cup B) = \{\emptyset, \{1\},\{2\},\{1,2\}\} \\
+                            P(A) = \{\emptyset, \{1\}\}                      \\
+                            P(B) = \{\emptyset, \{2\}\}                      \\
+                            P(A) \cup P(B) = \{\emptyset, \{1\}, \{2\}\}     \\
+                        \end{gather*}
+                        $P(A \cup B) \not= P(A) \cup P(B) $
+                    \end{proof}
+          \end{enumerate}
+
+    \item \begin{equation}
+              \exists p^{\star}T(p^{\star}) \Rightarrow \forall p T(p)
+          \end{equation}
+          \begin{proof}[Wiederlegen durch Gegenbeispiel]
+              \begin{displaymath}
+                  \begin{array}{|c c | c |}
+                      A & B & A \Rightarrow B \\
+                      \hline
+                      w & w & w               \\
+                      w & f & f               \\
+                      f & w & w               \\
+                      f & f & w               \\
+                  \end{array}
+              \end{displaymath}
+              \paragraph{Fall 1: Alle $p \in P$ trinken:}
+              \begin{gather*}
+                  \exists p^{\star} T(^{\star}) = wahr \\
+                  \forall p T(p) = wahr \\
+                  \exists p^{\star} T(^{\star}) \Rightarrow  \forall p T(p) = wahr \\
+                  \checkmark
+              \end{gather*}
+              \paragraph{Fall 2: Eine $p \in P$ trinkt nicht:} Wenn $\exists p \in P$ nicht trinkt, ist $\forall p \in P$ falsch, obwohl $\exists p^{\star} T(^{\star})$ immer noch wahr ist.
+              \begin{equation}
+                  \exists p^{\star} T(^{\star}) \nRightarrow  \forall p T(p)
+              \end{equation}
+          \end{proof}
+\end{enumerate}
+
+\end{document}
